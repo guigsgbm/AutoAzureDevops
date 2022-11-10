@@ -1,2 +1,2 @@
 #!/bin/bash
-env | grep '^_[.*]_'
+env | grep '^__.*__'
