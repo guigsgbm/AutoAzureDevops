@@ -35,11 +35,7 @@ foreach ($run in $runs.value){
 
     if ($null -eq ($buildPipes | Where-Object { $_.Name -eq $buildPipe.Name -and $_.Url -eq $buildPipe.Url })) {
             $buildPipes += $buildPipe
-        }
+    }
 }
 
-$uniqueBuildPipes = $buildPipes | Select-Object -Property Name, Url
-
-$json = $buildPipes | ConvertTo-Json
-
-$json | Out-File -FilePath "Builds-With-X-Agent.json"
+$json = $buildPipes | ConvertTo-Json | Out-File -FilePath "Builds-With-X-Agent.json"
